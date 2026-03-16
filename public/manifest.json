@@ -1,0 +1,17 @@
+{
+  "name": "What are we brewing?",
+  "short_name": "Brew Prompt",
+  "description": "Roll random Commander deck constraints—color, theme, budget, bracket. Get a build brief and Scryfall links.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1f1a14",
+  "theme_color": "#1f1a14",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "32x32",
+      "purpose": "any"
+    }
+  ]
+}
