@@ -11,8 +11,31 @@ function App() {
     return () => document.body.classList.remove("terminal-mode");
   }, [terminalMode]);
 
+  const [copied, setCopied] = useState(false);
+
   const handleGenerate = () => {
     setPrompt(generatePrompt());
+  };
+
+  const handleCopyBrief = async () => {
+    if (!prompt) return;
+    const lines = [
+      prompt.heading,
+      ...prompt.items.map((item) => `• ${item}`),
+      "",
+      "Browse commanders: " + prompt.scryfallLegendaryUrl,
+    ];
+    if (prompt.scryfallThemeUrl) {
+      lines.push("Browse theme cards: " + prompt.scryfallThemeUrl);
+    }
+    const text = lines.join("\n");
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
   };
 
   const version = import.meta.env.VITE_APP_VERSION ?? "dev";
@@ -66,6 +89,15 @@ function App() {
                 </a>
               )}
             </div>
+            <button
+              type="button"
+              className="copy-brief-btn"
+              onClick={handleCopyBrief}
+              aria-live="polite"
+              aria-label={copied ? "Copied to clipboard" : "Copy build brief to clipboard"}
+            >
+              {copied ? "Copied!" : "Copy build brief"}
+            </button>
           </div>
         )}
       </div>

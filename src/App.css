@@ -143,6 +143,28 @@
   color: var(--gold-light);
 }
 
+.copy-brief-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid var(--gold-border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.copy-brief-btn:hover {
+  background: rgba(201, 162, 39, 0.1);
+}
+
+.copy-brief-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
 .app-footer {
   margin-top: 2rem;
   padding-top: 1rem;
@@ -270,6 +292,19 @@
 
 .app.terminal-mode .scryfall-link::after {
   content: "  ";
+}
+
+.app.terminal-mode .copy-brief-btn {
+  margin-top: 0.75rem;
+  font-family: ui-monospace, "SF Mono", Monaco, Inconsolata, "Fira Mono", monospace;
+  font-size: 13px;
+  color: #484f58;
+  border-color: #30363d;
+}
+
+.app.terminal-mode .copy-brief-btn:hover {
+  color: #7ee787;
+  background: transparent;
 }
 
 .app.terminal-mode .app-footer {
