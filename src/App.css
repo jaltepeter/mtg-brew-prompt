@@ -39,14 +39,17 @@
   border-radius: 12px;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
 }
 
 .generate-btn:hover {
   background: linear-gradient(180deg, #ddb83f 0%, var(--gold-dark) 100%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .generate-btn:active {
   transform: scale(0.98);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
 }
 
 .generate-btn:focus-visible {
@@ -154,6 +157,7 @@
   border: 1px solid var(--gold-border);
   border-radius: 8px;
   cursor: pointer;
+  transition: background 0.15s ease;
 }
 
 .copy-brief-btn:hover {
@@ -203,6 +207,7 @@
 
   .generate-btn:active {
     transform: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   }
 
   .copy-brief-btn {
