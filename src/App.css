@@ -187,6 +187,29 @@
   color: var(--text-muted);
 }
 
+.footer-sha:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ----- Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  .generate-btn,
+  .generate-btn:hover,
+  .generate-btn:active {
+    transition: none;
+  }
+
+  .generate-btn:active {
+    transform: none;
+  }
+
+  .copy-brief-btn {
+    transition: none;
+  }
+}
+
 /* ----- Terminal mode (easter egg) ----- */
 .app.terminal-mode {
   align-items: flex-start;
