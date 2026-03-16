@@ -9,8 +9,19 @@
   --gold-border: #8b6914;
   --card-bg: linear-gradient(145deg, #2a251e 0%, #221d17 100%);
   --card-border: #3d3630;
+  --prompt-list-color: #d8d0c4;
   --font-sans: "Segoe UI", system-ui, sans-serif;
   --font-serif: Georgia, "Times New Roman", serif;
+}
+
+[data-theme="light"] {
+  --bg: #f5f0e8;
+  --text: #3d3630;
+  --text-muted: #6b5f54;
+  --text-faint: #8b7d6f;
+  --card-bg: #fff;
+  --card-border: #d4c4a0;
+  --prompt-list-color: #5c5248;
 }
 
 * {

@@ -44,6 +44,24 @@ function App() {
   const version = import.meta.env.VITE_APP_VERSION ?? "dev";
   const sha = import.meta.env.VITE_GIT_SHA ?? "local";
 
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    if (typeof window === "undefined") return "dark";
+    const stored = window.localStorage.getItem("brew-prompt-theme");
+    if (stored === "light" || stored === "dark") return stored;
+    return "dark";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    window.localStorage.setItem("brew-prompt-theme", theme);
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", theme === "light" ? "#f5f0e8" : "#1f1a14");
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
+  };
+
   return (
     <main className={`app ${terminalMode ? "terminal-mode" : ""}`}>
       {terminalMode && (
@@ -118,6 +136,17 @@ function App() {
         )}
       </section>
       <footer className="app-footer" title="Version · Git commit" aria-label="App version and build">
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-pressed={theme === "light"}
+          aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+          title={theme === "dark" ? "Light theme" : "Dark theme"}
+        >
+          {theme === "dark" ? "Light" : "Dark"}
+        </button>
+        {" · "}
         {version}
         {" · "}
         <button
