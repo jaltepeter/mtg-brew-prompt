@@ -19,8 +19,12 @@ function buildScryfallThemeUrl(
   themeQuery: string,
   rarityFragment?: string
 ): string {
-  let q = `commander:${colorScryfallId} ${themeQuery}`;
-  if (rarityFragment) q += ` ${rarityFragment}`;
+  const parts = [
+    `(commander:${colorScryfallId})`,
+    `(${themeQuery})`,
+  ];
+  if (rarityFragment) parts.push(`(${rarityFragment})`);
+  const q = parts.join(" AND ");
   return `${SCRYFALL_BASE}?q=${encodeURIComponent(q)}`;
 }
 
