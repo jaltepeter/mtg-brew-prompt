@@ -53,14 +53,25 @@ function App() {
       )}
       <h1>What are we brewing?</h1>
       <p className="tagline">
-        Roll the dice—get random Commander constraints. Color, theme, budget, and more.
+        Roll the dice—get random Commander constraints.
+        <br />
+        Color, theme, budget, and more.
         <br />
         Your next deck starts here.
       </p>
-      <button type="button" className="generate-btn" onClick={handleGenerate}>
+      <button
+        type="button"
+        className="generate-btn"
+        onClick={handleGenerate}
+        aria-label="Roll the dice to generate a new build brief"
+      >
         {terminalMode ? "> roll" : "Roll the dice"}
       </button>
-      <div className="prompt-card" aria-live="polite">
+      <section
+        className="prompt-card"
+        aria-live="polite"
+        aria-label="Build brief"
+      >
         {prompt == null ? (
           <p className="placeholder">Hit the button above and see what you get. No take-backs.</p>
         ) : (
@@ -78,6 +89,7 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="scryfall-link"
+                title="Open Scryfall search for legendary creatures matching this build"
               >
                 Browse commanders on Scryfall that match these constraints
               </a>
@@ -87,6 +99,7 @@ function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="scryfall-link"
+                  title="Open Scryfall search for theme cards matching this build"
                 >
                   Browse theme cards on Scryfall that match these constraints
                 </a>
@@ -103,8 +116,8 @@ function App() {
             </button>
           </div>
         )}
-      </div>
-      <footer className="app-footer">
+      </section>
+      <footer className="app-footer" title="Version · Git commit" aria-label="App version and build">
         {version}
         {" · "}
         <button
@@ -112,6 +125,7 @@ function App() {
           className="footer-sha"
           onClick={() => setTerminalMode((prev) => !prev)}
           title="Toggle terminal mode"
+          aria-label="Toggle terminal mode; shows version and Git commit"
         >
           {sha}
         </button>
