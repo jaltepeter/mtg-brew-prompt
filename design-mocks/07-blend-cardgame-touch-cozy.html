@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blend: Card-game base + touch of cozy</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      /* Touch of 5: slightly warmer, softer dark */
+      background: #1f1a14;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      color: #e5dfd6;
+    }
+    .mock {
+      text-align: center;
+      max-width: 28rem;
+    }
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.875rem;
+      font-weight: 600;
+      color: #c9a227;
+      text-shadow: 0 0 16px rgba(201, 162, 39, 0.2);
+      margin: 0 0 1rem;
+      letter-spacing: 0.02em;
+    }
+    .tagline {
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      color: #b5ab9e;
+      margin: 0 0 1.5rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.625rem 1.5rem;
+      font-size: 1rem;
+      font-family: inherit;
+      font-weight: 600;
+      color: #1a1510;
+      background: linear-gradient(180deg, #d4af37 0%, #a68b1f 100%);
+      border: 2px solid #8b6914;
+      /* Touch of 5: rounder */
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+      margin-bottom: 1.5rem;
+    }
+    /* Touch of 5: rounder card, softer shadow, less harsh border */
+    .card {
+      position: relative;
+      background: linear-gradient(145deg, #2a251e 0%, #221d17 100%);
+      border: 1px solid #3d3630;
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: left;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 6px; left: 6px; right: 6px; bottom: 6px;
+      border: 1px solid rgba(201, 162, 39, 0.12);
+      border-radius: 12px;
+      pointer-events: none;
+    }
+    .card-intro {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #8b8174;
+      margin: 0 0 0.4rem;
+    }
+    .card-heading {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #c9a227;
+      margin: 0 0 0.75rem;
+    }
+    .card-list {
+      margin: 0;
+      padding-left: 1.25rem;
+      color: #d8d0c4;
+      font-size: 0.9375rem;
+      line-height: 1.65;
+    }
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: #7a7268;
+    }
+  </style>
+</head>
+<body>
+  <div class="mock">
+    <h1>What are we brewing?</h1>
+    <p class="tagline">Roll the dice—get random Commander constraints. Color, theme, budget, and more.<br>Your next deck starts here.</p>
+    <button type="button" class="btn">Roll the dice</button>
+    <div class="card">
+      <p class="card-intro">Your build brief:</p>
+      <p class="card-heading">Build a Sultai (UBG) Commander deck</p>
+      <ul class="card-list">
+        <li>Budget: Under $50</li>
+        <li>Theme: Reanimator / graveyard</li>
+      </ul>
+    </div>
+    <p class="footer">0.1.0 · abc1234</p>
+  </div>
+</body>
+</html>

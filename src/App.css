@@ -4,37 +4,45 @@
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  padding: 2rem 1.5rem;
+  padding: 2rem 0;
   flex: 1;
-  box-sizing: border-box;
 }
 
 .app h1 {
+  font-family: var(--font-serif);
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-shadow: 0 0 16px rgba(201, 162, 39, 0.2);
   margin: 0;
   text-align: center;
+  letter-spacing: 0.02em;
 }
 
 .tagline {
-  color: var(--text);
-  font-size: 1rem;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.55;
   text-align: center;
-  max-width: 28ch;
+  max-width: 42ch;
 }
 
 .generate-btn {
-  font-size: 1.125rem;
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  color: var(--mtg-accent-fg, #1a1510);
-  background: var(--mtg-accent, #c9a227);
-  border: 2px solid var(--mtg-accent-border, #a68b1f);
+  padding: 0.625rem 1.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 600;
+  color: #1a1510;
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold-dark) 100%);
+  border: 2px solid var(--gold-border);
+  border-radius: 12px;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
 .generate-btn:hover {
-  background: var(--mtg-accent-hover, #d4af37);
+  background: linear-gradient(180deg, #ddb83f 0%, var(--gold-dark) 100%);
 }
 
 .generate-btn:active {
@@ -42,25 +50,39 @@
 }
 
 .generate-btn:focus-visible {
-  outline: 2px solid var(--mtg-accent);
+  outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
 
 .prompt-card {
+  position: relative;
   width: 100%;
   max-width: 32rem;
   padding: 1.5rem;
-  border-radius: 12px;
-  background: var(--code-bg);
-  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   min-height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.prompt-card::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border: 1px solid rgba(201, 162, 39, 0.12);
+  border-radius: 12px;
+  pointer-events: none;
 }
 
 .placeholder {
-  color: var(--text);
+  color: var(--text-muted);
   font-style: italic;
   margin: 0;
 }
@@ -70,19 +92,28 @@
   text-align: left;
 }
 
+.prompt-intro {
+  margin: 0 0 0.4rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+}
+
 .prompt-heading {
-  margin: 0 0 0.75rem;
-  font-size: 1.0625rem;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
   font-weight: 600;
-  color: var(--text-h);
+  color: var(--gold);
+  margin: 0 0 0.75rem;
 }
 
 .prompt-list {
   margin: 0;
   padding-left: 1.25rem;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text-h);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #d8d0c4;
 }
 
 .prompt-list li {
@@ -103,26 +134,162 @@
 .scryfall-link {
   display: inline-block;
   font-size: 0.9375rem;
-  color: var(--mtg-accent, #c9a227);
+  color: var(--gold);
   text-decoration: none;
 }
 
 .scryfall-link:hover {
   text-decoration: underline;
+  color: var(--gold-light);
 }
 
 .app-footer {
   margin-top: 2rem;
   padding-top: 1rem;
-  font-size: 0.8125rem;
-  color: var(--text);
+  font-size: 0.75rem;
+  color: var(--text-faint);
 }
 
-@media (prefers-color-scheme: dark) {
-  .generate-btn {
-    --mtg-accent: #c9a227;
-    --mtg-accent-fg: #1a1510;
-    --mtg-accent-border: #8b6914;
-    --mtg-accent-hover: #d4af37;
-  }
+.footer-sha {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.footer-sha:hover {
+  color: var(--text-muted);
+}
+
+/* ----- Terminal mode (easter egg) ----- */
+.app.terminal-mode {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.app.terminal-mode h1 {
+  display: none;
+}
+
+.app.terminal-mode .tagline {
+  text-align: left;
+  max-width: none;
+  color: #484f58;
+  font-family: ui-monospace, "SF Mono", Monaco, Inconsolata, "Fira Mono", monospace;
+  font-size: 13px;
+  margin: 0.5rem 0 1rem;
+}
+
+.app.terminal-mode .prompt-line {
+  color: #58a6ff;
+  font-family: ui-monospace, "SF Mono", Monaco, Inconsolata, "Fira Mono", monospace;
+  font-size: 14px;
+  margin: 0.25rem 0;
+}
+
+.app.terminal-mode .prompt-line .cmd {
+  color: #fff;
+}
+
+.app.terminal-mode .generate-btn {
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: #58a6ff;
+  padding: 0.25rem 0;
+  font-family: ui-monospace, "SF Mono", Monaco, Inconsolata, "Fira Mono", monospace;
+  font-size: 14px;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.app.terminal-mode .generate-btn:hover {
+  background: none;
+  color: #79c0ff;
+}
+
+.app.terminal-mode .prompt-card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0.5rem 0 0 1rem;
+  min-height: 0;
+  justify-content: flex-start;
+}
+
+.app.terminal-mode .prompt-card::before {
+  display: none;
+}
+
+.app.terminal-mode .placeholder {
+  color: #484f58;
+  font-family: ui-monospace, "SF Mono", Monaco, Inconsolata, "Fira Mono", monospace;
+  font-size: 14px;
+}
+
+.app.terminal-mode .prompt-result {
+  font-family: ui-monospace, "SF Mono", Monaco, Inconsolata, "Fira Mono", monospace;
+  font-size: 14px;
+}
+
+.app.terminal-mode .prompt-intro {
+  display: none;
+}
+
+.app.terminal-mode .prompt-heading {
+  color: #79c0ff;
+  font-family: ui-monospace, "SF Mono", Monaco, Inconsolata, "Fira Mono", monospace;
+  font-weight: 600;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.app.terminal-mode .prompt-list {
+  color: #e6edf3;
+  line-height: 1.8;
+  padding-left: 1.5rem;
+}
+
+.app.terminal-mode .scryfall-links {
+  margin-top: 1rem;
+  color: #484f58;
+  font-size: 13px;
+}
+
+.app.terminal-mode .scryfall-link {
+  color: #484f58;
+  display: inline;
+}
+
+.app.terminal-mode .scryfall-link:hover {
+  color: #7ee787;
+}
+
+.app.terminal-mode .scryfall-link::after {
+  content: "  ";
+}
+
+.app.terminal-mode .app-footer {
+  color: #30363d;
+  font-family: ui-monospace, "SF Mono", Monaco, Inconsolata, "Fira Mono", monospace;
+  font-size: 12px;
+}
+
+.app.terminal-mode .footer-sha {
+  text-decoration: none;
+}
+
+.app.terminal-mode .footer-sha:hover {
+  color: #7ee787;
+}
+
+body.terminal-mode {
+  background: #0d1117;
+}
+
+body.terminal-mode #root {
+  max-width: 32rem;
 }

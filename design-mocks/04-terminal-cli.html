@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mock 4: Terminal / CLI</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: #0d1117;
+      font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", monospace;
+      color: #7ee787;
+      font-size: 14px;
+    }
+    .mock {
+      text-align: left;
+      max-width: 32rem;
+      width: 100%;
+    }
+    .line { margin: 0.25rem 0; }
+    .prompt { color: #58a6ff; }
+    .cmd { color: #fff; }
+    .output { color: #7ee787; margin-left: 1rem; }
+    .muted { color: #484f58; }
+    .heading { color: #79c0ff; font-weight: 600; margin: 0.5rem 0 0.25rem; }
+    .list { color: #e6edf3; margin: 0; padding-left: 1.5rem; line-height: 1.8; }
+    .tagline {
+      color: #484f58;
+      margin: 0.5rem 0 1rem;
+      font-size: 13px;
+    }
+    .footer { color: #30363d; margin-top: 2rem; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="mock">
+    <p class="line prompt">$</p>
+    <p class="line"><span class="prompt">$</span> <span class="cmd">brew-prompt</span></p>
+    <p class="line tagline">Roll the dice—get random Commander constraints. Color, theme, budget, and more.</p>
+    <p class="line tagline">Your next deck starts here.</p>
+    <p class="line" style="margin-top: 1rem;"><span class="prompt">></span> <span class="cmd">roll</span></p>
+    <p class="line heading">Build a Sultai (UBG) Commander deck</p>
+    <ul class="list">
+      <li>Budget: Under $50</li>
+      <li>Theme: Reanimator / graveyard</li>
+    </ul>
+    <p class="line muted" style="margin-top: 1rem;">→ Find commanders on Scryfall  → Browse theme cards</p>
+    <p class="footer">0.1.0 · abc1234</p>
+  </div>
+</body>
+</html>
