@@ -50,6 +50,10 @@ function App() {
           </div>
         )}
       </div>
+      <footer className="app-footer">
+        {[import.meta.env.VITE_APP_VERSION ?? "dev", import.meta.env.VITE_GIT_SHA ?? "local"]
+          .join(" · ")}
+      </footer>
     </main>
   );
 }

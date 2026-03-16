@@ -111,6 +111,13 @@
   text-decoration: underline;
 }
 
+.app-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.8125rem;
+  color: var(--text);
+}
+
 @media (prefers-color-scheme: dark) {
   .generate-btn {
     --mtg-accent: #c9a227;
