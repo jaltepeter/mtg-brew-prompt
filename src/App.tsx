@@ -73,7 +73,7 @@ function App() {
         aria-label="Build brief"
       >
         {prompt == null ? (
-          <p className="placeholder">Hit the button above and see what you get. No take-backs.</p>
+          <p className="placeholder">Roll the dice above to get your random build brief and Scryfall links.</p>
         ) : (
           <div className="prompt-result" key={promptKey}>
             <p className="prompt-intro">Your build brief:</p>
